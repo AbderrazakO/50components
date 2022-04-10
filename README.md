@@ -21,9 +21,11 @@ A simple responsive Header for web page
 export default App
 ```
 - in Laptop
+
 ![screencapture-localhost-3000-2022-04-10-23_23_05](https://user-images.githubusercontent.com/72947119/162644841-0e2faaac-b9c8-452b-a6de-850d08de9d9e.png)
 
 - in Mobile
+
 ![screencapture-localhost-3000-2022-04-10-23_22_54](https://user-images.githubusercontent.com/72947119/162644812-f5351699-bd72-404d-8544-e24e932b2b7c.png)
 
 ## Drop Down Menu
