@@ -7,8 +7,7 @@ import DropMenu from './Components/DropDownMenu/index'
 const App = () => {
   return (
     <div>
-      <Slider />
-      Hello World
+      <ResHeader logo={<div>Logo Here</div>} navBar={<div>Nav Here</div>} />
     </div>
   )
 }
