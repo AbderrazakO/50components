@@ -46,7 +46,7 @@ body {
   width: 100%;
 }
 
-.dropDownBtn {
+.dropDownContainer {
   background-color: aqua;
   margin-top: 200px;
   min-width: 250px;
@@ -68,7 +68,7 @@ body {
   position: relative;
 }
 
-.dropDownBtn .dropItem {
+.dropDownContainer .dropItem {
   position: absolute;
   width: 100%;
   min-height: 40px;

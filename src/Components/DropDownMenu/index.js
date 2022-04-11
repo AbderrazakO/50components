@@ -1,16 +1,31 @@
 import { useState, useRef, useEffect } from 'react'
 
 const DropBtn = () => {
-  const [isClicked, setIsClicked] = useState(false)
+  const [isHover, setIsHover] = useState(false)
   const dropDown = useRef(null)
 
   useEffect(() => {
-    const container = dropDown.current
-    if (isClicked) {
-      const itemsList = dropDown.current.childNodes
-      container.style.height = `${55 * itemsList.length}px`
+    const dropContainer = dropDown.current // Set Container
+    const itemsList = dropDown.current.childNodes // Get Items
+
+    // On Hover
+    if (isHover) {
+      // Set container height with animation
+      dropContainer.style.height = `${55 * itemsList.length}px`
+      dropContainer.animate(
+        [
+          { height: `60px` }, // From
+          { height: `${55 * itemsList.length}px` }, // To
+        ],
+        {
+          duration: 300,
+          easing: 'cubic-bezier(.5,.62,.68,.57)',
+        }
+      )
+
+      //
       for (let index = 0; index < itemsList.length; index++) {
-        // console.log(itemsList[index])
+        // Drop Down
         const itemWidth = dropDown.current.childNodes[index].offsetWidth
         itemsList[index].style.top = `${index * 55}px`
         itemsList[index].style.width = `${250}px`
@@ -25,11 +40,29 @@ const DropBtn = () => {
           }
         )
       }
-    } else {
-      const itemsList = dropDown.current.childNodes
+    }
+
+    // Set default parametres
+    else {
+      // Set container height with animation
+      dropContainer.style.height = `${60}px`
+      dropContainer.animate(
+        [
+          { height: `${55 * itemsList.length}px` }, // From
+          { height: `60px` }, // To
+        ],
+        {
+          duration: 300,
+          easing: 'cubic-bezier(.5,.62,.68,.57)',
+        }
+      )
+
+      // Set Items Width and Position
       for (let index = 0; index < itemsList.length; index++) {
-        // console.log(itemsList[index])
+        // Set every new card behind last one
         itemsList[index].style.zIndex = `${99 + itemsList.length - index}`
+
+        // Set Items Width and Position
         if (index < 3) {
           itemsList[index].style.top = `${index * 4}px`
           itemsList[index].style.width = `${250 - index * 10}px`
@@ -57,46 +90,31 @@ const DropBtn = () => {
             }
           )
         }
+
+        // End
       }
     }
-  })
 
-  const dropMenu = () => {
-    console.log('Over')
-    const itemsList = dropDown.current.childNodes
-    for (let index = 0; index < itemsList.length; index++) {
-      console.log(itemsList[index])
-      itemsList[index].style.top = `${index * 45}px`
-    }
-    // dropDown.current.addEventListener('mouseout', () => {
-    //   console.log('Out')
-    //   const itemsList = dropDown.current.childNodes
-    //   for (let index = 0; index < itemsList.length; index++) {
-    //     console.log(itemsList[index])
-    //     itemsList[index].style.top = `${45} px`
-    //   }
-    // })
-  }
+    // End
+  })
 
   return (
     <div
-      className='dropDownBtn'
+      className='dropDownContainer'
       ref={dropDown}
-      // onClick={() => {
-      //   isClicked ? setIsClicked(false) : setIsClicked(true)
-      // }}
       onMouseOver={() => {
-        setIsClicked(true)
+        setIsHover(true)
       }}
       onMouseOut={() => {
-        setIsClicked(false)
+        setIsHover(false)
       }}
     >
-      <div className='dropItem'>ENG</div>
-      <div className='dropItem'>ENG</div>
-      <div className='dropItem'>ENG</div>
-      <div className='dropItem'>ENG</div>
-      <div className='dropItem'>ENG</div>
+      <div className='dropItem'>Lorem, ipsum dolor.</div>
+      <div className='dropItem'>Lorem, ipsum dolor.</div>
+      <div className='dropItem'>Lorem, ipsum dolor.</div>
+      <div className='dropItem'>Lorem, ipsum dolor.</div>
+      <div className='dropItem'>Lorem, ipsum dolor.</div>
+      <div className='dropItem'>Lorem, ipsum dolor.</div>
     </div>
   )
 }
