@@ -571,12 +571,11 @@ header #showNav:checked ~ .handleNavigator {
   margin-right: 1px;
 }
 
-.userAvatarWrapper {
+.avatarContainer {
   margin-top: 200px;
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -593,10 +592,102 @@ header #showNav:checked ~ .handleNavigator {
   position: relative;
 }
 
-.userAvatarWrapper svg {
+.avatarContainer .userAvatar {
   position: absolute;
   z-index: -99;
   width: 200px;
   height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+}
+
+.avatarContainer .userAvatar svg {
+  width: 200px;
+  height: 200px;
+}
+
+.avatarContainer .avatarWrapper {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  z-index: 99;
+  position: absolute;
+  background-color: rgba(1, 1, 39, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.avatarContainer .avatarWrapper svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+.avatarContainer .avatarWrapper h1 {
+  width: 70%;
+  text-align: center;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: sans-serif;
+  color: #fff;
+}
+
+.avatarContainer .actionsMenu {
+  display: none;
+  width: 200px;
+  height: auto;
+  position: absolute;
+  z-index: 999;
+  -webkit-animation: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+          animation: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 3px #0b141a14;
+          box-shadow: 0 1px 3px #0b141a14;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.avatarContainer .actionsMenu .actionsBtn {
+  padding: 0 1rem;
+  margin: 0.2rem 0;
+  text-align: left;
+  height: 45px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.avatarContainer .actionsMenu .actionsBtn:hover {
+  background-color: #f0f0f0;
 }
 /*# sourceMappingURL=index.css.map */

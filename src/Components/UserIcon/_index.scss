@@ -1,18 +1,82 @@
-.userAvatarWrapper {
+.avatarContainer {
   margin-top: 200px;
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  overflow: hidden;
+  // overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  svg {
+  .userAvatar {
     position: absolute;
     z-index: -99;
     width: 200px;
     height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    // visibility: hidden;
+    svg {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  .avatarWrapper {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    z-index: 99;
+    position: absolute;
+    background-color: rgba(1, 1, 39, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: #fff;
+    }
+    h1 {
+      width: 70%;
+      text-align: center;
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      font-family: sans-serif;
+      color: #fff;
+    }
+  }
+
+  .actionsMenu {
+    display: none;
+    width: 200px;
+    height: auto;
+    position: absolute;
+    z-index: 999;
+    animation: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    background-color: #fff;
+    box-shadow: 0 1px 3px #0b141a14;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 2px;
+    cursor: pointer;
+    .actionsBtn {
+      padding: 0 1rem;
+      margin: 0.2rem 0;
+      text-align: left;
+      height: 45px;
+      width: 100%;
+      cursor: pointer;
+      &:hover {
+        background-color: rgb(240, 240, 240);
+      }
+    }
   }
 }

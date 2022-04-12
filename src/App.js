@@ -8,14 +8,7 @@ import UserIcon from './Components/UserIcon/index'
 const App = () => {
   return (
     <div>
-      <Slider />
-      <Slider />
-      <Slider />
-      <Slider />
-      <Slider />
-      <Slider />
-      <Slider />
-      <PopMenu />
+      <UserIcon />
     </div>
   )
 }
