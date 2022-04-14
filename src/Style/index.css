@@ -759,20 +759,20 @@ header #showNav:checked ~ .handleNavigator {
 }
 
 .editConatiner .editWrapper .editBox {
-  height: auto;
-  min-height: 200px;
   width: 100%;
+  height: auto;
+  min-height: 300px;
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
-  background-color: blueviolet;
+  background-color: rgba(34, 34, 34, 0.336);
   position: relative;
 }
 
 .editConatiner .editWrapper .editBox .dragTool {
-  width: 50%;
-  height: 50%;
-  border: 1px dashed #546;
-  background-color: aqua;
+  width: 60%;
+  height: 40%;
+  border: 2px dashed #546;
   position: absolute;
   top: 0;
   left: 0;
