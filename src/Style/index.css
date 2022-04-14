@@ -620,7 +620,7 @@ header #showNav:checked ~ .handleNavigator {
   border-radius: 50%;
   z-index: 99;
   position: absolute;
-  background-color: rgba(1, 1, 39, 0.5);
+  background-color: rgba(29, 53, 87, 0.2);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -635,6 +635,10 @@ header #showNav:checked ~ .handleNavigator {
       -ms-flex-pack: center;
           justify-content: center;
   cursor: pointer;
+}
+
+.avatarContainer .avatarWrapper:hover {
+  background-color: rgba(29, 53, 87, 0.4);
 }
 
 .avatarContainer .avatarWrapper svg {
@@ -679,9 +683,23 @@ header #showNav:checked ~ .handleNavigator {
 }
 
 .avatarContainer .actionsMenu .actionsBtn {
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   padding: 0 1rem;
   margin: 0.2rem 0;
-  text-align: left;
   height: 45px;
   width: 100%;
   cursor: pointer;
@@ -689,5 +707,95 @@ header #showNav:checked ~ .handleNavigator {
 
 .avatarContainer .actionsMenu .actionsBtn:hover {
   background-color: #f0f0f0;
+}
+
+.avatarContainer .actionsMenu #uploadAvatar {
+  display: none;
+}
+
+.editConatiner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.editConatiner .editWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #fff;
+  padding: 1rem;
+  width: 35%;
+  height: 80%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  border-radius: 10px;
+  font-family: var(--font-poppins);
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+}
+
+.editConatiner .editWrapper .editBox {
+  height: auto;
+  min-height: 200px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: blueviolet;
+  position: relative;
+}
+
+.editConatiner .editWrapper .editBox .dragTool {
+  width: 50%;
+  height: 50%;
+  border: 1px dashed #546;
+  background-color: aqua;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.editConatiner .editWrapper .editActions {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.editConatiner .editWrapper .editActions .editBtn {
+  cursor: pointer;
 }
 /*# sourceMappingURL=index.css.map */
