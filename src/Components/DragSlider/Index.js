@@ -41,8 +41,11 @@ const Index = ({ cards, heightPerc = 120 }) => {
         sliderLeft % (cardWidth + 10)
           ? cardWidth + 10 - Math.abs(sliderLeft % (cardWidth + 10))
           : cardWidth + 10
-      console.log(cardWidth + 10 - moveUnit)
 
+      // console.log(sliderWidth - containerWidth - cardWidth - 10)
+      if (Math.abs(sliderLeft) > sliderWidth - containerWidth - cardWidth) {
+        return
+      }
       slider.style.left = `${sliderLeft - moveUnit}px` // Move Slider
     }
 
