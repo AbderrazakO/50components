@@ -1,7 +1,7 @@
-import { useState, useRef, useEffect, useMemo } from 'react'
-import { LeftArrowIcon, RightArrowIcon } from './icons'
+import { useState, useRef, useEffect } from 'react'
+import { LeftArrowIcon, RightArrowIcon } from './Icons'
 
-const Index = () => {
+const Index = ({ cards, heightPerc = 120 }) => {
   const [isDown, setIsDown] = useState(false) // Mouse Down Status
   const sliderWrapper = useRef(null) // Get Wrapper Div
   const startX = useRef(0) // Get Mouse Down Position
@@ -18,9 +18,10 @@ const Index = () => {
     const newCardWidth = (containerWidth - (cardShowed + 1) * 10) / cardShowed
     for (let i = 0; i < slider.childNodes.length; i++) {
       slider.childNodes[i].style.width = `${newCardWidth}px`
-      slider.childNodes[i].style.height = `${newCardWidth}px`
+      slider.childNodes[i].style.height = `${
+        (heightPerc / 100) * newCardWidth
+      }px`
     }
-    // console.log(cardShowed, containerWidth, cardWidth, slider.childNodes.length)
   })
 
   // Button Swip
@@ -29,69 +30,56 @@ const Index = () => {
     const sliderWidth = sliderWrapper.current.offsetWidth
     const containerWidth = slider.parentNode.offsetWidth // Get Container Width
     const cardWidth = slider.childNodes[0].offsetWidth // Get Card Width
-
-    // console.log(sliderWrapper.current.offsetLeft, wrapperWidth)
-    // slider.style.left = `${endX.current - startX.current}px` // Move Slider
     const sliderLeft = slider.offsetLeft // Get Slider Wrapper Left Position
+
+    //
     if (
       direction === 'right' &&
       Math.abs(sliderLeft) < sliderWidth - containerWidth
-      // && sliderLeft - cardWidth - 10 < sliderWidth - containerWidth
     ) {
-      slider.style.left = `${sliderLeft - cardWidth - 10}px` // Move Slider
-    } else if (
-      direction === 'left' &&
-      Math.abs(sliderLeft) > 0
-      // && sliderLeft + cardWidth + 10 > 0
-    ) {
-      slider.style.left = `${sliderLeft + cardWidth + 10}px` // Move Slider
-    } else {
+      const moveUnit =
+        sliderLeft % (cardWidth + 10)
+          ? cardWidth + 10 - Math.abs(sliderLeft % (cardWidth + 10))
+          : cardWidth + 10
+      console.log(cardWidth + 10 - moveUnit)
+
+      slider.style.left = `${sliderLeft - moveUnit}px` // Move Slider
+    }
+
+    //
+    else if (direction === 'left' && Math.abs(sliderLeft) > 0) {
+      const moveUnit =
+        sliderLeft % (cardWidth + 10)
+          ? Math.abs(sliderLeft % (cardWidth + 10))
+          : cardWidth + 10
+      if (Math.abs(sliderLeft) < cardWidth + 10)
+        return (slider.style.left = `0px`)
+      slider.style.left = `${sliderLeft + moveUnit}px` // Move Slider
+    }
+
+    //
+    else {
       return
     }
-    // const max = (obj.length - Math.floor(ariaWidth / cardWidth)) * cardWidth
-    // // const min =
-    // console.log(boxWidth)
-    // if (direction === 'right' && Math.abs(ariaLeft) < max) {
-    //   // && Math.abs(ariaLeft) < (obj.length - 4) * 260
-    //   setAriaLeft(ariaLeft - cardWidth)
-    //   // return console.log('left', ariaLeft)
-    // } else if (direction === 'left' && Math.abs(ariaLeft) > 0) {
-    //   // && Math.abs(ariaLeft) > 0
-    //   setAriaLeft(ariaLeft + cardWidth)
-    //   // return console.log('right')
-    // }
   }
 
   // Set Mouse Events
   const mousedown = (event) => {
-    // Get Mouse Initial Position
-    startX.current = event.pageX - sliderWrapper.current.offsetLeft
+    startX.current = event.pageX - sliderWrapper.current.offsetLeft // Get Mouse Initial Position
     setIsDown(true)
   }
 
   const mouseleave = (event) => {
-    // Do None
-    setIsDown(false)
+    setIsDown(false) // Do None
   }
 
   const mouseup = (event) => {
     setIsDown(false)
-    const slider = sliderWrapper.current
-    const sliderWidth = sliderWrapper.current.offsetWidth
-    const slideLeft = slider.offsetLeft
-    const containerWidth = slider.parentNode.offsetWidth // Get Container Width
-    const cardWidth = slider.childNodes[0].offsetWidth // Get Card Width
-
-    const newPosition = Math.floor(slideLeft / cardWidth) * (cardWidth + 10)
-    if (Math.abs(newPosition) > sliderWidth - containerWidth) return
-    slider.style.left = `${newPosition}px`
-    // console.log(newPosition)
   }
 
   const mousemove = (event) => {
     event.preventDefault()
     const slider = sliderWrapper.current
-    //
     const containerWidth = slider.parentNode.offsetWidth // Get Container Width
     const sliderWidth = slider.offsetWidth // Get Slider Wrapper Width
     // const sliderLeft = slider.offsetLeft // Get Slider Wrapper Left Position
@@ -128,7 +116,6 @@ const Index = () => {
     }
   })
 
-  // Return Our Slide
   return (
     <div className='slider'>
       <div className='sliderHeader'>
@@ -154,6 +141,10 @@ const Index = () => {
           <div className='card'>
             <div className='cardInfo'>kjscj</div>
           </div>
+          <div className='card'></div>
+          <div className='card'></div>
+          <div className='card'></div>
+          <div className='card'></div>
           <div className='card'></div>
           <div className='card'></div>
           <div className='card'></div>

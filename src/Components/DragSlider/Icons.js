@@ -18,6 +18,7 @@ export const LeftArrowIcon = () => {
   )
 }
 
+//
 export const RightArrowIcon = () => {
   return (
     <svg
