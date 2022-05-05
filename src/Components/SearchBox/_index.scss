@@ -1,0 +1,54 @@
+@keyframes showBox {
+  from {
+    width: 0;
+    display: none;
+  }
+  to {
+    width: 200px;
+    display: block;
+  }
+}
+footer {
+  .searchBox {
+    height: 40px;
+    width: max-content;
+    box-shadow: var(--shadow-3);
+    background-color: var(--background-color-2);
+    border-radius: 50px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    &:hover > .searchAria {
+      width: 200px;
+      display: block;
+    }
+    .searchBtn {
+      height: 40px;
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        fill: var(--text-color-1);
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .searchAria {
+      height: 35px;
+      width: 0;
+      display: none;
+      padding: 0 1rem;
+      font-family: var(--poppins-font);
+      color: var(--text-color-1);
+      font-size: 1rem;
+      animation: showBox 0.6s cubic-bezier(0.63, 0.63, 0.43, 0.42);
+      &:focus {
+        display: block;
+        width: 200px;
+      }
+    }
+  }
+}
